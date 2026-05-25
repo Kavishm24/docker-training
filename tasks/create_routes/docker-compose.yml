@@ -1,10 +1,9 @@
 services:
   my-nginx:
-    image: nginx:stable-alpine-slim
+    build: .
     container_name: my-nginx
 
     ports:
-      8080:80
-
-    volume:
-      - nginx.config:/usr/share/nginx/config
+      - 8080:80
+      - 9091:8081
+      - 9092:8082
