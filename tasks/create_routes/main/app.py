@@ -7,9 +7,11 @@ import uvicorn
 app = FastAPI()
 
 
-@app.post("/")
+@app.get("/")
 async def index():
-    return "Hello this is home page."
+    with open("index.html","r") as file:
+        content = file.read()
+    return content
 
 
 @app.post("/login")
