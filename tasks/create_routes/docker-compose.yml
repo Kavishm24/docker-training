@@ -2,8 +2,15 @@ services:
   my-nginx:
     build: .
     container_name: my-nginx
-
     ports:
-      - 8080:80
-      - 9091:8081
-      - 9092:8082
+      - "8080:80"
+
+  web_app:
+    build:
+      context: .
+      dockerfile: app.Dockerfile
+    container_name: application
+    expose: 
+      - "3000"
+    # ports:
+    #   - 3000:3000
